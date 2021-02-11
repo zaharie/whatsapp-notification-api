@@ -24,7 +24,7 @@ class BaseController {
     return { status: 200 };
   }
 
-  static errorNormalizer(error) {
+  public static errorNormalizer(error) {
     let normalizedError = {
       error: {
         error: error.error,
@@ -36,7 +36,7 @@ class BaseController {
     return normalizedError;
   }
 
-  handleError(error) {
+  public handleError(error) {
     let normalizedError = error;
     if (error.code) {
       normalizedError = BaseController.errorList(error);
@@ -49,7 +49,7 @@ class BaseController {
     return BaseController.errorNormalizer(error);
   }
 
-  static toObject(validation) {
+  public static toObject(validation) {
     let allErrors = validation.errors.all();
     let keys = Object.keys(allErrors);
     let fields = {};
@@ -58,7 +58,7 @@ class BaseController {
     });
     return fields;
   }
-  static errorList(error) {
+  public static errorList(error) {
     switch (error.code) {
       case 11000:
         error.status = 409;
