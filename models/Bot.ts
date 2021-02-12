@@ -1,5 +1,6 @@
 import { Client, ClientSession } from "whatsapp-web.js";
 import { promises as fs } from "fs";
+import fsSync from "fs"; 
 class Bot {
   client: Client;
   session: any;
@@ -29,7 +30,13 @@ class Bot {
   };
 
   private checkSession = async (): Promise<ClientSession> => {
-    let sessionFile = JSON.parse(await fs.readFile("./session.json", "utf8"));
+    let sessionFile;
+    if (fsSync.existsSync("./session.json")) {
+      sessionFile = JSON.parse(await fs.readFile("./session.json", "utf8"));
+    }
+    if(!sessionFile){
+      return null;
+    }
     return sessionFile;
   };
 
