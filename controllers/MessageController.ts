@@ -37,15 +37,15 @@ class MessageController extends BaseController {
     try {
       let params = {
         phone: req.params.phone,
-        location: req.body.location,
+        longitude: req.body.longitude,
         latitude: req.body.latitude,
         description: req.body.description,
       };
 
       await this.message.sendLocation(
         params.phone,
-        params.location,
         params.latitude,
+        params.longitude,
         params.description
       );
       return res.status(200).send();
