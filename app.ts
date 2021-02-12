@@ -3,7 +3,7 @@ import { initBot } from "./ClientModule";
 
 var port = process.env.VCAP_APP_PORT || 3000;
 initBot();
-server.listen("0.0.0.0", ()=>{
+server.listen("8080", ()=>{
   console.log("running");
 });
 process.on("uncaughtException", function (err) {
