@@ -1,6 +1,6 @@
 import { Client, ClientSession } from "whatsapp-web.js";
 import { promises as fs } from "fs";
-import fsSync from "fs"; 
+import fsSync from "fs";
 class Bot {
   client: Client;
   session: any;
@@ -25,7 +25,7 @@ class Bot {
       },
       session: session,
     });
-    this.registerListners(this.client);
+    await this.registerListners(this.client);
     await this.client.initialize();
   };
 
@@ -35,14 +35,15 @@ class Bot {
       sessionFile = JSON.parse(await fs.readFile("./session.json", "utf8"));
       console.log(sessionFile);
     }
-    if(!sessionFile){
+    if (!sessionFile) {
       console.log("cannot find session.json");
       return null;
     }
     return sessionFile;
   };
 
-  private registerListners(client: Client) {
+
+  private registerListners = async (client)=>{
     client.on("qr", (qr) => {
       fs.writeFile("qrCode.json", qr);
     });
@@ -52,7 +53,7 @@ class Bot {
 
     client.on("authenticated", (session) => {
       fs.writeFile("session.json", JSON.stringify(session));
-      console.log("autenticated !")
+      console.log("autenticated !");
     });
 
     client.on("message", (msg) => {
@@ -60,10 +61,13 @@ class Bot {
         msg.reply("pong");
       }
     });
+    return;
   }
 
+
+
   public getQrCode = async () => {
-    this.init();
+    await this.init();
     let qrCode = await fs.readFile("./qrCode.json", "utf8");
     return { qrCode };
   };
