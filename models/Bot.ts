@@ -27,7 +27,6 @@ class Bot {
     });
     await this.registerListners(this.client);
     await this.client.initialize();
-    console.log(this.client);
   };
 
   private checkSession = async (): Promise<ClientSession> => {
@@ -64,7 +63,6 @@ class Bot {
   };
 
   public getQrCode = async () => {
-    await this.init();
     let qrCode = await fs.readFile("./qrCode.json", "utf8");
     return { qrCode };
   };
