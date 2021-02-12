@@ -1,7 +1,8 @@
 import server from "./config/server";
+import { initBot } from "./ClientModule";
 var host = process.env.VCAP_APP_HOST || "localhost";
 var port = process.env.VCAP_APP_PORT || 3000;
-
+initBot();
 server.listen(80, host);
 process.on("uncaughtException", function (err) {
   console.log(err);

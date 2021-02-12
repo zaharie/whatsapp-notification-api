@@ -24,7 +24,7 @@
     "shelljs": "^0.8.4",
     "valid-url": "^1.0.9",
     "validatorjs": "^3.22.1",
-    "whatsapp-web.js": "1.12.3"
+    "whatsapp-web.js": "1.12.4"
   },
   "devDependencies": {
     "@types/cors": "^2.8.9",

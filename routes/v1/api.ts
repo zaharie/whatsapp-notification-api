@@ -1,5 +1,9 @@
-import BotController from "../../controllers/botController";
+import BotController from "../../controllers/BotController";
+import MessageController from "../../controllers/MessageController";
 export default function (app) {
   const botController = new BotController();
-  app.get("/", botController.getQrCode);
+  const messageController = new MessageController();
+  app.get("/api/qrcode", botController.getQrCode);
+  app.post("/api/message", messageController.sendMessage);
+  app.post("/api/location", messageController.sendLocation);
 };
