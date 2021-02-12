@@ -23,10 +23,27 @@ class MessageController extends BaseController {
       return res.status(normalizedError.error.status).send(normalizedError);
     }
   };
+  /**
+   * return current qrCode.
+   * @param {req} req - The request.
+   * @param {Response} res - The response
+   */
 
   public sendLocation = async (req, res) => {
     try {
-      await this.message.sendLocation("554299419554", "teste");
+      let params = {
+        phone: req.params.phone,
+        location: req.body.location,
+        latitude: req.body.latitude,
+        description: req.body.description,
+      };
+
+      await this.message.sendLocation(
+        params.phone,
+        params.location,
+        params.latitude,
+        params.description
+      );
       return res.status(200).send();
     } catch (error) {
       let normalizedError = await this.handleError(error);
@@ -34,6 +51,26 @@ class MessageController extends BaseController {
     }
   };
 
+  /**
+   * return current qrCode.
+   * @param {req} req - The request.
+   * @param {Response} res - The response
+   */
+
+  public sendMedia = async (req, res) => {
+    try {
+      let params = {
+        phone: req.params.phone,
+        media: req.body.media,
+      };
+
+      await this.message.sendMedia(params.phone, params.media);
+      return res.status(200).send();
+    } catch (error) {
+      let normalizedError = await this.handleError(error);
+      return res.status(normalizedError.error.status).send(normalizedError);
+    }
+  };
 }
 
 export default MessageController;
