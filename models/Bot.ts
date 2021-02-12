@@ -30,14 +30,13 @@ class Bot {
   };
 
   private checkSession = async (): Promise<ClientSession> => {
-    let sessionFile;
-    if (fsSync.existsSync("./session.json")) {
+    let sessionFile = null;
+    if (await fsSync.existsSync("./session.json")) {
       sessionFile = JSON.parse(await fs.readFile("./session.json", "utf8"));
-      console.log(sessionFile);
     }
     if (!sessionFile) {
       console.log("cannot find session.json");
-      return null;
+      return sessionFile;
     }
     return sessionFile;
   };
