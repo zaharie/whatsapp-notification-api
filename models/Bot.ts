@@ -33,8 +33,10 @@ class Bot {
     let sessionFile;
     if (fsSync.existsSync("./session.json")) {
       sessionFile = JSON.parse(await fs.readFile("./session.json", "utf8"));
+      console.log(sessionFile);
     }
     if(!sessionFile){
+      console.log("cannot find session.json");
       return null;
     }
     return sessionFile;
@@ -50,6 +52,7 @@ class Bot {
 
     client.on("authenticated", (session) => {
       fs.writeFile("session.json", JSON.stringify(session));
+      console.log("autenticated !")
     });
 
     client.on("message", (msg) => {
