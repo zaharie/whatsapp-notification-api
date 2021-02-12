@@ -8,7 +8,6 @@ import routes from "../routes/v1/api";
 dotenv.config();
 const app = express();
 app.use(cors());
-app.use(bodyParser.json());
 app.use((req, res, next) => {
   return next();
 });
@@ -17,7 +16,8 @@ app.use(bodyParser.json({ limit: "50mb" }));
 app.use(compression());
 app.use(
   bodyParser.urlencoded({
-    extended: false,
+    limit: "50mb",
+    extended: true
   })
 );
 routes(app);

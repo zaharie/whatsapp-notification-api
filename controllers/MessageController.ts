@@ -16,7 +16,11 @@ class MessageController extends BaseController {
 
   public sendMessage = async (req, res) => {
     try {
-      await this.message.sendMessage("554299114848", "teste");
+      let params = {
+        phone: req.params.phone,
+        message:req.body.message
+      };
+      await this.message.sendMessage(params.phone, params.message);
       return res.status(200).send();
     } catch (error) {
       let normalizedError = await this.handleError(error);
@@ -61,10 +65,10 @@ class MessageController extends BaseController {
     try {
       let params = {
         phone: req.params.phone,
-        media: req.body.media,
+        image: req.body.image,
       };
 
-      await this.message.sendMedia(params.phone, params.media);
+      await this.message.sendMedia(params.phone, params.image);
       return res.status(200).send();
     } catch (error) {
       let normalizedError = await this.handleError(error);

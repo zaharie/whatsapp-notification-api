@@ -58,7 +58,8 @@ class Message {
     let media = new MessageMedia("image/png", image);
     let messageResponse = await bot.client.sendMessage(
       numberIdResponse._serialized,
-      media
+      media,
+      { caption: "" }
     );
     return;
   };
