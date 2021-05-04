@@ -54,10 +54,14 @@ class Bot {
       console.log("autenticated !");
     });
 
+    client.on("auth_failure", (session) => {
+      console.log(session);
+    });
+
     client.on("message", (msg) => {
-      if (msg.body == "!ping") {
-        msg.reply("pong");
-      }
+      msg.reply(
+        "Oi, eu sou um sistema de notificação de pede logo, por favor para qualquer outro assunto entre em contato com o estabelecimento, Obrigado !"
+      );
     });
     return;
   };

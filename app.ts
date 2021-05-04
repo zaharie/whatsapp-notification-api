@@ -1,7 +1,8 @@
 import server from "./config/server";
 import { initBot } from "./ClientModule";
-
-server.listen(8080, () => {
+let port = 8080
+server.listen(port, () => {
+  console.log(`server running on port ${port}`);
   initBot();
 });
 process.on("uncaughtException", function (err) {
