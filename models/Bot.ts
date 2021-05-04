@@ -59,12 +59,7 @@ class Bot {
     });
 
     client.on("message", (msg) => {
-      let from = msg.from.split("-");
-      if (from.length == 1) {
-        msg.reply(
-          "Oi, eu sou um sistema de notificação de pede logo, por favor para qualquer outro assunto entre em contato com o estabelecimento, Obrigado !"
-        );
-      }
+ 
     });
     return;
   };
