@@ -1,6 +1,8 @@
 import server from "./config/server";
 import { initBot } from "./ClientModule";
-let port = 8080
+
+var port = process.env.VCAP_APP_PORT || 8080;
+
 server.listen(port, () => {
   console.log(`server running on port ${port}`);
   initBot();

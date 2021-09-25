@@ -1,6 +1,7 @@
 {
   "name": "pedelogo-notification-new",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "license": "MIT",
   "description": "pedelogo-notification-new",
   "main": "app.js",
   "scripts": {
@@ -8,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@types/react": "^17.0.1",
+    "@types/react": "^17.0.14",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "child_process": "^1.0.2",
@@ -16,26 +17,28 @@
     "consign": "0.1.6",
     "cors": "^2.8.5",
     "dotenv": "8.2.0",
+    "ejs": "^3.1.6",
     "eslint-config-airbnb-base": "^14.2.1",
     "express": "^4.16.4",
     "fs": "0.0.1-security",
+    "qrcode": "^1.4.4",
     "request": "^2.88.2",
     "shelljs": "^0.8.4",
     "valid-url": "^1.0.9",
     "validatorjs": "^3.22.1",
-    "whatsapp-web.js": "1.12.6"
+    "whatsapp-web.js": "1.14.1"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.9",
-    "@types/express": "^4.16.1",
-    "@types/node": "^14.14.31",
-    "@typescript-eslint/eslint-plugin": "^4.15.0",
-    "@typescript-eslint/parser": "^4.15.0",
-    "eslint": "^7.19.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^14.17.5",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "tslint": "^5.12.1",
-    "typescript": "^3.3.3"
+    "typescript": "4.4.3"
   }
 }

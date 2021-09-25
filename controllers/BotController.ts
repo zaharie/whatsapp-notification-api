@@ -1,6 +1,7 @@
 import BaseController from "./BaseController";
 import { Request, Response } from "express";
 import Bot from "../models/Bot";
+import qr from "qrcode";
 
 class BotController extends BaseController {
   public bot: Bot;
@@ -18,7 +19,8 @@ class BotController extends BaseController {
   public getQrCode = async (req, res) => {
     try {
       let result = await this.bot.getQrCode();
-      return res.status(200).send({ qrCode: result.qrCode });
+      let parsedQr = await qr.toDataURL(result.qrCode);
+      return res.render("qrCode", { qrCode: parsedQr });
     } catch (error) {
       let normalizedError = await this.handleError(error);
       return res.status(normalizedError.error.status).send(normalizedError);

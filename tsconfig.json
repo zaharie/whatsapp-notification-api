@@ -1,12 +1,17 @@
 {
-    "compilerOptions": {
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "target": "es6",
-      "moduleResolution": "node",
-      "sourceMap": true,
-      "outDir": "build",
-    },
-    "exclude": ["node_modules", "build"],
-    "lib": ["es2015"]
-  }
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "build",
+  },
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "lib": [
+    "es2017"
+  ]
+}

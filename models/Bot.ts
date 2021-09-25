@@ -12,16 +12,12 @@ class Bot {
    * @param {client} client - The client Instance of puppeter.
    */
 
-  public init = async () => {
+  public init = async (): Promise<void> => {
     let session = await this.checkSession();
     this.client = new Client({
       puppeteer: {
-        headless: true,
-        args: [
-          "--no-sandbox",
-          "--disable-setuid-sandbox",
-          "--unhandled-rejections=strict",
-        ],
+        // @ts-ignore: Unreachable code error
+        args: ["--no-sandbox", "--disable-setuid-sandbox"],
       },
       session: session,
     });
@@ -58,9 +54,7 @@ class Bot {
       console.log(session);
     });
 
-    client.on("message", (msg) => {
- 
-    });
+    client.on("message", (msg) => {});
     return;
   };
 
